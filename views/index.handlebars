@@ -1,13 +1,76 @@
-<div class="container">
+<div id="wrapper">
+      <h1>PolitiTalk</h1>
+      
+      <div id="scrape"><button id="scrapeButton">Let's get scrape'n</button></div>
+      <h3>Articles</h3>
+      <div id="articles">
+          
+           {{#each article}}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4>{{this.title}}</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p id={{this._id}}> {{this.summary}}</p>
+                        <a href={{this.link}} target="_blank">{{this.link}}</a>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            {{/each}}
+      </div>
+      <div id="notes">
+                {{#each this.notes}}
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <p class="previousNotes"> {{this.body}}</p>
+                        <button type="button" class="btn btn-danger deleteNote" data-note-id={{this._id}} data-article-id={{this.article}}>Delete Note</button>
+                    </div>
+                </div>
+            {{/each}}
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- <div class="container">
     <div class="row">
 
-        <div class="col-md-6" id="news side">
-
+        <div class="col-md-6" id="news side" style="overflow:auto">
+            <h1>News Articles</h1>
+            
+            {{#each article}}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4>{{this.title}}</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p> {{this.summary}}</p>
+                        <a href={{this.link}} target="_blank">{{this.link}}</a>
+                        <br>
+                        <br>
+                    <button class="{{this._sid}}">Comments</button>
+                    </div>
+                </div>
+            {{/each}}
         </div>
 
-        <div class="col-md-6" id="comments side">
-
+        <div class="col-md-6" id="comments side" style="float:right">
+            <h1>Comments</h1>
         </div>
 
     </div>
-</div>
+</div> --}}
